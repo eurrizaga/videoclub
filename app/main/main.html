@@ -1,0 +1,109 @@
+<div class='container' ng-controller="MainController">
+  <div id='control-panel' class = "row" align='right'>
+    <ul class="col-xs-12 list-inline">
+      <li>
+        <form class='form-inline'>
+          <span>
+            LOGIN 
+            <input type='text' id = 'username' placeholder='username'/>
+            <input type='password' id ='password' placeholder='password'/>
+            <input type='submit' value='LOGIN' class='btn btn-default' ng-click='soon()'/>
+          </span>
+        </form>
+      </li>
+      <li>
+        <a href='' ng-click='soon()'>REGISTER</a>
+      </li>
+    </ul>
+  </div>
+  <div id='header-img' class = "row">
+    <div class='col-xs-12'>
+      <a href='#'><img id = 'banner' class='siteBan' src='img/moviePoster.jpg'/></a>
+    </div>
+  </div>
+
+  <div id='navbar' class = "row">
+    <div class='col-xs-9'>
+      <div id='cssmenu'>
+        <ul class='list-inline active'>
+            <li><a href='' ng-click ="setGenre('')">View All</a></li>
+            <li ng-repeat = 'genre in genres'>
+                <a href='' ng-click="setGenre(genre)"> 
+                  <span>{{ genre.name }}</span>
+                </a>
+            </li>
+            <li class='last'></li>
+        </ul>
+      </div>
+    </div>
+    <div class='col-xs-3' id='search' align='right'>
+      <form class='form-inline'>
+          <input type='text' id='movie-name' ng-model='searchText' value='' placeholder='FIND BY NAME'/>
+          <input type='submit' value='FIND' ng-click='newSearch()'/>
+      </form>
+    </div>
+  </div>
+
+  <div id='content-row' class = "row" >
+    <div class='col-xs-9'>
+      <!-- MOVIES AREA -->
+      <div class='row' ng-hide="selectedMovie">
+        <!-- HEADER BAR -->
+        <div class='col-xs-3 preview' ng-repeat="movie in movies | filter: getGenre() | filter: getSearchName()">
+            <a href="" ng-click="selectMovie(movie)">
+              <table>
+                <tr><td>{{ movie.name }}</td></tr>
+                <tr><td><img src="{{movie.img}}" class='img-thumbnail'></td></tr>
+              </table>
+            </a>
+        </div>
+      </div>
+      <div id='content-row' class = "row" ng-show="selectedMovie" >
+        <!-- CONTENT -->
+        <div class='col-xs-2'></div>
+        <div class='col-xs-8' align='center'>
+          <div class='row'>
+            <div class='col-xs-6'>
+                {{currentMovie.name}} - ({{currentMovie.year}})
+            </div>
+            <div class='col-xs-6'>
+              <p>Rating: {{currentMovie.rating}}</p>
+            </div>
+          </div>
+          <div class='row'>
+            <div class='col-xs-12'>
+              <img src="{{currentMovie.img}}" class='imgPoster'>
+            </div>
+          </div>
+          <div class='row'>
+            <div class='col-xs-12'>
+              <p>{{currentMovie.info}}</p>
+              <p><a href='{{trailerUrl}}' target="_blank">VIEW TRAILER</a></p>
+            </div>
+          </div>
+          <div class='row'>
+            <div class='col-xs-6'>
+              <input type='button' value='BACK' ng-click='goBack();' class='btn btn-default'/>
+            </div>
+            <div class='col-xs-6'>
+              <input type='button' value='RENT' class='btn btn-success' ng-click='addMovie();'/>
+            </div>
+          </div>
+          <!--<iframe class="youtube-player" type="text/html" width="420" height="345" ng-src="{{trustSrc(trailerUrl)}}" frameborder="0" allowfullscreen></iframe>
+          -->
+        </div>
+      </div>
+    </div>
+    <div class='col-xs-3 cart'>
+      <!-- CART -->
+      <p>Selected Movies</p>
+      <ul>
+        <li ng-repeat='movie in rentList'> {{ movie.name }} </li>
+      </ul>
+      <p>Total:$<span ng-bind="getPrice()"></span> per week</p>
+      <form align='right'>
+        <input type='button' value='CHECKOUT' ng-click='soon()'/>
+      </form>
+    </div>
+  </div>
+</div>
