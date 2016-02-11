@@ -1,0 +1,9 @@
+<!-- HEADER BAR -->
+<div class='col-xs-3 preview' ng-repeat="movie in movies | filter: getGenre() | filter: getSearchName()">
+    <a href="" ng-click="selectMovie(movie)">
+      <table>
+        <tr><td>{{ movie.name }}</td></tr>
+        <tr><td><img src="{{movie.img}}" class='img-thumbnail'></td></tr>
+      </table>
+    </a>
+</div>

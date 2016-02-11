@@ -1,0 +1,21 @@
+  <div id='navbar' class = "row">
+    <div class='col-xs-9'>
+      <div id='cssmenu'>
+        <ul class='list-inline active'>
+            <li><a href='' ng-click ="setGenre('')">View All</a></li>
+            <li ng-repeat = 'genre in genres'>
+                <a href='' ng-click="setGenre(genre)"> 
+                  <span>{{ genre.name }}</span>
+                </a>
+            </li>
+            <li class='last'></li>
+        </ul>
+      </div>
+    </div>
+    <div class='col-xs-3 gradient' id='search' align='right'>
+      <form class='form-inline'>
+          <input type='text' id='movie-name' ng-model='searchText' value='' placeholder='FIND BY NAME'/>
+          <input type='submit' value='FIND' ng-click='newSearch()'/>
+      </form>
+    </div>
+  </div>

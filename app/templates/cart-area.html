@@ -1,0 +1,11 @@
+<div class='col-xs-3 cart fill'>
+  <!-- CART -->
+  <p>Selected Movies</p>
+  <ul>
+    <li ng-repeat='movie in rentList'> {{ movie.name }} </li>
+  </ul>
+  <p>Total:$<span ng-bind="getPrice()"></span> per week</p>
+  <form align='right'>
+    <input type='button' value='CHECKOUT' ng-click='soon()'/>
+  </form>
+</div>

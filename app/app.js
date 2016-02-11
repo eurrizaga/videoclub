@@ -6,7 +6,8 @@ var app = angular.module('myApp', [
   'myApp.main',
   'myApp.view2',
   'myApp.version',
-  'services'
+  'services',
+  'directives'
 ]).
 config(['$routeProvider', function($routeProvider) {
   $routeProvider.otherwise({redirectTo: '/main'});
@@ -34,6 +35,13 @@ app.controller('MainController', function($scope, $http, appData){
         })
         .error(function(){
           console.log('error loading movies');
+        });
+    $http.get('data/users.json')
+        .success(function(data){
+          appData.setUsers(data);
+        })
+        .error(function(){
+          console.log('error loading users');
         });
   }
   loadData();
@@ -99,7 +107,27 @@ app.controller('MainController', function($scope, $http, appData){
     alert('Coming soon!!');
   }
   
-
+  $scope.logged = false;
+  $scope.loginAction = function(){
+    var user_sel = appData.findByUsername($scope.user_input);
+    if (user_sel.length > 0){
+      user_sel = user_sel[0];
+      if (user_sel.password === $scope.password_input){
+        sessionStorage.user = JSON.stringify(user_sel);
+        $rootScope.userActive = user_sel;
+        $rootScope.logged = true;
+        $scope.user_input = "";
+        $scope.password_input = "";
+      }
+      else{
+        alert("Incorrect Password");
+      }
+    }
+    else{
+      alert("User does not exist");
+    }
+  }
+  
 
 });
 

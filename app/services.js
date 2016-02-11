@@ -20,13 +20,21 @@
       setGenres: function(genres){
         data.genres = genres;
       },
+      setUsers: function(users){
+        data.users = users;
+      },
       getMovies: function(){
         return data.movies;
       },
       getGenres: function(){
         return data.genres;
       },
+      findByUsername: function(username){
+        return data.users.filter(function(obj) { return obj.user === username; });
+      }
+
     };
 
   });
+
 })();

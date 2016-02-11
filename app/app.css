@@ -1,10 +1,22 @@
 /* app css stylesheet */
+html, body{
+  height: 100%;
+}
+
+.textfield{
+  color:#000000;
+}
 body{
   background-color: #704214;
   background: 
     url(img/film-strip-vertical-hi.png) top left no-repeat, 
     url(img/film-strip-vertical-hi.png) top right no-repeat;
   background-repeat: repeat-y;
+  height:100%;
+}
+#container{
+  height:100%;
+  bottom:0;
 }
 .menu {
   list-style: none;
@@ -41,10 +53,12 @@ body{
   width:100%;
 }
 .cart{
-  bottom:0;
-  background-color:#C8C8C8;
+  bottom: 0;
+  background-color: #C8C8C8;
   margin-left: 0%;
   margin-right: 0%;
+  height: 300px;
+  
 }
 #content-row{
   height:100%;
@@ -52,6 +66,7 @@ body{
   background-color: #E5E5E5;
   margin-left: 0%;
   margin-right: 0%;
+  position:relative;
 }
 
 #control-panel{
@@ -68,3 +83,17 @@ body{
 .preview{
   max-height:285px;
 }
+.gradient{
+  background: #222222;
+  /* Old browsers */
+  margin-left: -15px;
+  margin-right: 0%;
+  height:32px;
+  background: -moz-linear-gradient(bottom, #000000 0%, #222222 50%, #3c3c3c 51%, #393939 78%, #888888 100%);
+  background: -webkit-linear-gradient(bottom, #000000 0%, #222222 50%, #3c3c3c 51%, #393939 78%, #888888 100%);
+  background: -o-linear-gradient(bottom, #000000 0%, #222222 50%, #3c3c3c 51%, #393939 78%, #888888 100%);
+  background: -ms-linear-gradient(bottom, #000000 0%, #222222 50%, #3c3c3c 51%, #393939 78%, #888888 100%);
+  background: linear-gradient(to top, #000000 0%, #222222 50%, #3c3c3c 51%, #393939 78%, #888888 100%);
+}
+
+

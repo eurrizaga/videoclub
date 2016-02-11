@@ -1,0 +1,21 @@
+<ul class="col-xs-12 list-inline" ng-show='!logged'>
+  <li>
+    <form name="loginForm" ng-submit="login()">
+        LOGIN 
+        <input class='textfield' type='text' placeholder='username' ng-model='user_input'/>
+        <input class='textfield' type='password' placeholder='password' ng-model='password_input'/>
+        <input type='submit' value='LOGIN' class='btn btn-default'/>
+    </form>
+  </li>
+  <li>
+    <a href='' ng-click='register()'>REGISTER</a>
+  </li>
+</ul>
+<ul class="col-xs-12 list-inline" ng-show='logged'>
+  <li>
+    <a href="">EDIT MOVIES</a>
+  </li>
+  <li>
+    <a href='' ng-click='soon()'>EDIT USERS</a>
+  </li>
+</ul>

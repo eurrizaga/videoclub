@@ -1,0 +1,33 @@
+<!-- CONTENT -->
+  <div class='col-xs-2'></div>
+  <div class='col-xs-8' align='center'>
+    <div class='row'>
+      <div class='col-xs-6'>
+          {{currentMovie.name}} - ({{currentMovie.year}})
+      </div>
+      <div class='col-xs-6'>
+        <p>Rating: {{currentMovie.rating}}</p>
+      </div>
+    </div>
+    <div class='row'>
+      <div class='col-xs-12'>
+        <img src="{{currentMovie.img}}" class='imgPoster'>
+      </div>
+    </div>
+    <div class='row'>
+      <div class='col-xs-12'>
+        <p>{{currentMovie.info}}</p>
+        <p><a href='{{trailerUrl}}' target="_blank">VIEW TRAILER</a></p>
+      </div>
+    </div>
+    <div class='row'>
+      <div class='col-xs-6'>
+        <input type='button' value='BACK' ng-click='goBack();' class='btn btn-default'/>
+      </div>
+      <div class='col-xs-6'>
+        <input type='button' value='RENT' class='btn btn-success' ng-click='addMovie();'/>
+      </div>
+    </div>
+    <!--<iframe class="youtube-player" type="text/html" width="420" height="345" ng-src="{{trustSrc(trailerUrl)}}" frameborder="0" allowfullscreen></iframe>
+    -->
+  </div>
