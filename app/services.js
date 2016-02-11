@@ -30,7 +30,7 @@
         return data.genres;
       },
       findByUsername: function(username){
-        return data.users.filter(function(obj) { return obj.user === username; });
+        return data.users.filter(function(obj) { return obj.username === username; });
       }
 
     };

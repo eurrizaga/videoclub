@@ -108,14 +108,13 @@ app.controller('MainController', function($scope, $http, appData){
   }
   
   $scope.logged = false;
-  $scope.loginAction = function(){
+  $scope.login = function(){
     var user_sel = appData.findByUsername($scope.user_input);
     if (user_sel.length > 0){
       user_sel = user_sel[0];
       if (user_sel.password === $scope.password_input){
         sessionStorage.user = JSON.stringify(user_sel);
-        $rootScope.userActive = user_sel;
-        $rootScope.logged = true;
+        $scope.logged = true;
         $scope.user_input = "";
         $scope.password_input = "";
       }
