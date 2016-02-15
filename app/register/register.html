@@ -1,0 +1,41 @@
+
+<div ng-controller="RegisterCtrl">
+  <div id='content-row' class = "row" align='center'>
+    <div class='col-xs-4' ></div>
+    <div class='col-xs-4' >
+      <form name="registerForm" ng-submit="addUser(registerForm.$valid)" novalidate>
+        <p><strong>Enter your data:</strong></p>
+        <div class="form-group">
+          <input type="text" class="form-control" name="name" placeholder="Full Name" ng-model="new_name_input" required />
+          
+          <p ng-show="registerForm.name.$invalid && !registerForm.name.$pristine" class="help-block">Your First Name is required.</p>
+
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" name="username" placeholder="Username" ng-model="new_user_input" ng-pattern="/^[a-zA-Z0-9]+$/" required='true'/>
+          
+          <p ng-show="registerForm.username.$invalid && !registerForm.username.$pristine" class="help-block">Please enter an alphanumeric User Name.</p>
+
+        </div>
+        <div class="form-group">
+          <input type="password" class="form-control" name="password" placeholder="Password" ng-model="new_password_input" ng-pattern="/^[a-zA-Z0-9]+$/" required='true' ng-minlength='7'/>
+          
+          <p ng-show="registerForm.password.$invalid && !registerForm.password.$pristine" class="help-block">Please enter an alphanumeric Password.</p>
+          <p ng-show="registerForm.password.$error.minlength && !registerForm.password.$pristine" class="help-block">At least 7 characters.</p>
+
+        </div>
+        <div class="form-group">
+          <input type="password" class="form-control" name="password2" placeholder="Repeat Password" ng-model="new_password2_input" required='true' ng-pattern="/[a-zA-Z0-9\.]*/"/>
+          
+          <p ng-show="new_password_input != new_password2_input" class="help-block">Passwords don't match.</p>
+
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary" ng-disabled="registerForm.$invalid">CREATE NEW</button>
+        </div>
+        <div class="form-group"><a href="" ng-click="goBack()">Go Back</a></div>
+      </form>
+    </div>
+      
+  </div>
+</div>

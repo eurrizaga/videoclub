@@ -1,5 +1,5 @@
 <!-- HEADER BAR -->
-<div class='col-xs-3 preview' ng-repeat="movie in movies | filter: getGenre() | filter: getSearchName()">
+<div class='col-xs-3 preview' ng-repeat="movie in movies | filter: getGenre() | filter: getSearchName() | orderBy: 'name'">
     <a href="" ng-click="selectMovie(movie)">
       <table>
         <tr><td>{{ movie.name }}</td></tr>

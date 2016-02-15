@@ -96,4 +96,8 @@ body{
   background: linear-gradient(to top, #000000 0%, #222222 50%, #3c3c3c 51%, #393939 78%, #888888 100%);
 }
 
+.icon{
+  width:30px;
+  height:30px;
+}
 

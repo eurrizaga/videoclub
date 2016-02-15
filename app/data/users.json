@@ -4,14 +4,16 @@
 		"username": "admin",
 		"password": "admin",
 		"name": "ADMINISTRATOR",
-		"history": []
+		"history": [],
+		"admin": 1
 	},
 	{
 		"id": 1,
 		"username": "user",
 		"password": "user",
 		"name": "USER",
-		"history": []
+		"history": [],
+		"admin": 0
 	}
 
 ]

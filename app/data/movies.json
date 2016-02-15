@@ -6,9 +6,9 @@
     "info": "Retired Special Forces soldier John Matrix (Arnold Schwarzenegger) lives with daughter Jenny (Alyssa Milano) in isolation, but his privacy is disturbed by former commander Franklin Kirby (James Olson), who warns him that his fellow soldiers are getting killed one by one. After Kirby leaves, Jenny is kidnapped by former Latin American dictator Arius (Dan Hedaya), who wants Matrix to restore him to power. Instead, Matrix sets out to take down the rogue leader and rescue his daughter.",
     "year": "1985",
     "trailer": "http://www.youtube.com/watch?v=pPhISgw3I2w",
-
     "rating": 3,
-    "cast": []
+    "cast": [],
+    "quantity": 10
 
   },
   {
@@ -19,7 +19,8 @@
     "year": "1993",
     "trailer": "http://www.youtube.com/watch?v=JdRGC-w9syA",
     "rating": 5,
-    "cast": []
+    "cast": [],
+    "quantity": 10
   },
   {
     "name": "Star Trek",
@@ -29,7 +30,8 @@
     "year": "2009",
     "trailer": "https://www.youtube.com/watch?v=pKFUZ10Wmbw",
     "rating": 1,
-    "cast": []
+    "cast": [],
+    "quantity": 10
 
   },
   {
@@ -40,7 +42,8 @@
     "year": "2004",
     "trailer": "http://www.youtube.com/watch?v=4M7LIcH8C9U",
     "rating": 2,
-    "cast": []
+    "cast": [],
+    "quantity": 10
   },
   {
     "name": "The Exorcist",
@@ -50,7 +53,8 @@
     "year": "1973",
     "trailer": "http://www.youtube.com/watch?v=YDGw1MTEe9k",
     "rating": 4,
-    "cast": []
+    "cast": [],
+    "quantity": 10
   },
   {
     "name": "Naked Gun",
@@ -60,7 +64,8 @@
     "year": "1988",
     "trailer": "http://www.youtube.com/watch?v=DEYpcCCS-QY",
     "rating": 3,
-    "cast": []
+    "cast": [],
+    "quantity": 10
   }
 
 ]

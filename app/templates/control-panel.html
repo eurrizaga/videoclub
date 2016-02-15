@@ -8,14 +8,17 @@
     </form>
   </li>
   <li>
-    <a href='' ng-click='register()'>REGISTER</a>
+    <a href='#/register'>REGISTER</a>
   </li>
 </ul>
 <ul class="col-xs-12 list-inline" ng-show='logged'>
-  <li>
-    <a href="" ng-click='soon()'>EDIT MOVIES</a>
+  <li ng-show='isAdmin()'>
+    <a href='#/editmovie'>EDIT MOVIES</a>
+  </li>
+  <li ng-show='isAdmin()'>
+    <a href='' ng-click='soon()'>EDIT USERS</a>
   </li>
   <li>
-    <a href='' ng-click='soon()'>EDIT USERS</a>
+    <a href='' ng-click='logout()'>LOGOUT</a>
   </li>
 </ul>

@@ -1,0 +1,31 @@
+<div ng-controller="EditMoviesControlller">
+  <div id='content-row' class = "row" align='center'>
+    <div class='col-xs-12' ng-show='!selected'>
+      <table>
+        <tr ng-repeat='movie in movies'>
+          <td>{{movie.name}}</td>
+          <td>{{movie.year}}</td>
+          <td>{{movie.quantity}}</td>
+          <td>
+            <a ng-click='soon()' title='EDIT'><img class='icon' src='img/edit.png'/></a>
+            <a ng-click='soon()' title='DELETE'><img class='icon' src='img/delete.png'/></a>
+          </td>
+        </tr>
+      </table>  
+    </div>
+    <div class='col-xs-12' ng-show='selected'>
+      <table>
+        <tr ng-repeat='movie in movies'>
+          <td>{{movie.name}}</td>
+          <td>{{movie.year}}</td>
+          <td>{{movie.quantity}}</td>
+          <td>
+            <a title='EDIT'><img ng-click='soon()' class='icon' src='img/edit.png'/></a>
+            <a title='DELETE'><img ng-click='soon()' class='icon' src='img/delete.png'/></a>
+          </td>
+        </tr>
+      </table>  
+    </div>
+  </div>
+</div>
+
