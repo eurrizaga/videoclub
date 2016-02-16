@@ -1,30 +1,78 @@
 <div ng-controller="EditMoviesControlller">
-  <div id='content-row' class = "row" align='center'>
-    <div class='col-xs-12' ng-show='!selected'>
-      <table>
-        <tr ng-repeat='movie in movies'>
+  <div id='content-row' class = "row" align='center' ng-show='!selected'>
+    <div class='col-xs-3'></div>
+    <div class='col-xs-6' >
+      <p> MOVIE LIST </p>
+      <table class='table table-stripped'>
+        <tr ng-repeat='movie in movies track by movie.id'>
           <td>{{movie.name}}</td>
           <td>{{movie.year}}</td>
           <td>{{movie.quantity}}</td>
           <td>
-            <a ng-click='soon()' title='EDIT'><img class='icon' src='img/edit.png'/></a>
-            <a ng-click='soon()' title='DELETE'><img class='icon' src='img/delete.png'/></a>
+            <a href='' ng-click='editMovie(movie)' title='EDIT'><img class='icon' src='img/edit.png'/></a>
+            <a href='' ng-click='deleteMovie(movie)' title='DELETE'><img class='icon' src='img/delete.png'/></a>
           </td>
         </tr>
       </table>  
+      <div align='center'>
+        <input type='button' value='ADD NEW' ng-click='newMovie()'/>
+      </div>
     </div>
-    <div class='col-xs-12' ng-show='selected'>
-      <table>
-        <tr ng-repeat='movie in movies'>
-          <td>{{movie.name}}</td>
-          <td>{{movie.year}}</td>
-          <td>{{movie.quantity}}</td>
-          <td>
-            <a title='EDIT'><img ng-click='soon()' class='icon' src='img/edit.png'/></a>
-            <a title='DELETE'><img ng-click='soon()' class='icon' src='img/delete.png'/></a>
-          </td>
-        </tr>
-      </table>  
+  </div>
+  <div id='content-row' class = "row" align='center' ng-show='selected'>
+    <div class='col-xs-3'></div>
+    <div class='col-xs-6' >
+      <form name="movieForm" ng-submit="addMovie(movieForm.$valid)" novalidate>
+        <p><strong>Enter movie data:</strong></p>
+        <div class="form-group">
+          <input type="text" class="form-control" name="name" placeholder="Movie Name" ng-model="name_input" required />
+          
+          <p ng-show="movieForm.name.$invalid && !movieForm.name.$pristine" class="help-block">Your First Name is required.</p>
+
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" name="year" placeholder="Year" ng-model="year_input" ng-pattern="/^[0-9]+$/" required='true'/>
+          
+          <p ng-show="movieForm.year.$invalid && !movieForm.year.$pristine" class="help-block">Please enter a numeric value.</p>
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" name="quantity" placeholder="Quantity" ng-model="quantity_input" ng-pattern="/^[0-9]+$/" required='true'/>
+          <p ng-show="movieForm.quantity.$invalid && !movieForm.quantity.$pristine" class="help-block">Please enter an numeric Password.</p>
+        </div>
+        <div class="form-group">
+          <select placeholder='Genre' class="form-control" ng-model='genre_input'>
+            <option value="" disabled selected>Select genre</option>
+            <option ng-repeat='genre in genres' value='{{genre.name}}'>{{genre.name}}</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <select class="form-control" placeholder='Rating' ng-model='rating_input'>
+            <option value="" disabled selected>Select Rating</option>
+            <option ng-repeat ="n in [1, 2, 3, 4, 5]" value='{{n}}'>{{n}}</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <p>Synopsis: </p>
+          <textarea ng-model='info_input' class="form-control description"></textarea>
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" name="trailer" placeholder="Trailer URL" ng-model="trailer_input" required />
+          
+          <p ng-show="movieForm.trailer.$invalid && !movieForm.trailer.$pristine" class="help-block">Insert Trailer URL (eg: http://www.youtube.com/???)</p>
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" name="img" placeholder="Poster URL" ng-model="img_input" required />
+          
+          <p ng-show="movieForm.img.$invalid && !movieForm.img.$pristine" class="help-block">Insert Poster URL (eg: http://www.?????.??/...)</p>
+          <p>PREVIEW</p>
+          <img src="{{getImg()}}" class='img-thumbnail'/>
+        </div>
+
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary" ng-disabled="movieForm.$invalid">CREATE NEW</button>
+        </div>
+        <div class="form-group"><a href="" ng-click="goBack()">Go Back</a></div>
+      </form> 
     </div>
   </div>
 </div>

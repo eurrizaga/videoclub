@@ -7,6 +7,7 @@ var app = angular.module('myApp', [
   'myApp.register',
   'myApp.version',
   'myApp.editmovie',
+  'myApp.profile',
   'services',
   'directives'
 ]).
@@ -48,9 +49,12 @@ app.controller('ParentController', function($scope, appData){
 
   $scope.isAdmin = function(){
     if (sessionStorage.user)
-      return (JSON.parse(sessionStorage.user).admin);
+      return ($scope.getCurrentUser().admin);
     else
       return false;
+  }
+  $scope.getCurrentUser = function(){
+    return JSON.parse(sessionStorage.user);
   }
   var loadData = function(){
     // set genres

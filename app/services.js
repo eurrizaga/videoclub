@@ -31,7 +31,7 @@
           $http.get('data/users.json')
             .success(function(result){
               data.users = result;
-              localStorage.VCusers = JSON.stringify(result);
+              this.persistUsers();
             })
             .error(function(){
               console.log('error loading users');
@@ -49,7 +49,7 @@
           $http.get('data/movies.json')
             .success(function(result){
               data.movies = result;
-              localStorage.VCmovies = JSON.stringify(result);
+              this.persistMovies();
               return data.movies;
             })
             .error(function(){
@@ -67,7 +67,7 @@
           $http.get('data/genres.json')
             .success(function(result){
               data.genres = result;
-              localStorage.VCgenres = JSON.stringify(result);
+              this.persistGenres();
               return data.genres;
             })
             .error(function(){
@@ -88,7 +88,7 @@
           "admin": 0
         }
         data.users.push(newUser);
-        localStorage.VCusers = JSON.stringify(data.users);
+        this.persistUsers();
         return true;
         /*
         $http.post('data/users.json', data.users)
@@ -101,6 +101,47 @@
           }
         );
         */
+      },
+      addMovie: function(name, year, quantity, genre, rating, trailer, img, info){
+        var newMovie = {
+          "id": (data.movies[data.movies.length - 1].id + 1),
+          "name": name,
+          "genre": genre,
+          "img": img,
+          "info": info,
+          "year": year,
+          "trailer": trailer,
+          "rating": rating,
+          "cast": [],
+          "quantity": quantity
+        };
+        data.movies.push(newMovie);
+        this.persistMovies();
+        return true;
+      },
+      findMovieByNameYear: function(name, year){
+        return data.users.filter(function(obj) { return (obj.name === name && obj.year === year); });
+      },
+      deleteMovie: function(movie){
+        var index = data.movies.indexOf(movie);
+        data.movies.splice(index, 1);
+        
+      },
+      addRent: function(user, rent){
+        var index = data.users.map(function(x) {return x.id; }).indexOf(user.id);
+        
+        data.users[index].history.push(rent);
+        this.persistUsers();
+        sessionStorage.user = JSON.stringify(data.users[index]);
+      },
+      persistUsers: function(){
+        localStorage.VCusers = JSON.stringify(data.users); 
+      },
+      persistMovies: function(){
+        localStorage.VCmovies = JSON.stringify(data.movies); 
+      },
+      persistGenres: function(){
+        localStorage.VCgenres = JSON.stringify(data.genres); 
       }
 
     };

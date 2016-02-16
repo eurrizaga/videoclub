@@ -3,5 +3,6 @@
 	{ "name": "Comedy" },
 	{ "name": "Drama" },
 	{ "name": "Horror" },
-	{ "name": "Romance" }
+	{ "name": "Romance" },
+	{ "name": "Sci-Fi"}
 ]

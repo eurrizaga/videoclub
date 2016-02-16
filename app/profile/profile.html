@@ -1,0 +1,50 @@
+<div ng-controller="ProfileControlller">
+  <div id='content-row' class = "row" align='center'>
+    <div class='col-xs-6' >
+      <form name="registerForm" ng-submit="addUser(registerForm.$valid)" novalidate>
+        <p><strong>Enter your data:</strong></p>
+        <div class="form-group">
+          <input type="text" class="form-control" name="name" placeholder="Full Name" ng-model="currentUser.name" required />
+          
+          <p ng-show="registerForm.name.$invalid && !registerForm.name.$pristine" class="help-block">Your First Name is required.</p>
+
+        </div>
+        <div class="form-group">
+          <input type="password" class="form-control" name="password" placeholder="Password" ng-model="currentUser.password" ng-pattern="/^[a-zA-Z0-9]+$/" required='true' ng-minlength='7'/>
+          
+          <p ng-show="registerForm.password.$invalid && !registerForm.password.$pristine" class="help-block">Please enter an alphanumeric Password.</p>
+          <p ng-show="registerForm.password.$error.minlength && !registerForm.password.$pristine" class="help-block">At least 7 characters.</p>
+
+        </div>
+        <div class="form-group">
+          <input type="password" class="form-control" name="password2" placeholder="Repeat Password" ng-model="passwordConfirm" required='true' ng-pattern="/[a-zA-Z0-9\.]*/"/>
+          
+          <p ng-show="new_password_input != new_password2_input" class="help-block">Passwords don't match.</p>
+
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary" ng-disabled="registerForm.$invalid">SAVE CHANGES</button>
+        </div>
+      </form> 
+    </div>
+    <div class='col-xs-6'>
+      <p><strong>RENT HISTORY:</strong></p>
+      <table class='table table-stripped'>
+        <thead><b><td>Rent Date</td><td>Due Date</td><td>Movies Rented</td><td>Amount</td></b></thead>
+        <tbody>
+          <tr ng-repeat="rent in currentUser.history">
+            <td>{{rent.date}}</td>
+            <td>{{rent.due}}</td>
+            <td>
+              <ul>
+                <li ng-repeat='movie in rent.movies'>{{movie.name}}</li>
+              </ul>
+            </td>
+            <td>{{rent.price}}</td>
+          <tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
