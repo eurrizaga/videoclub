@@ -1,5 +1,4 @@
-/* app css stylesheet */
-.cssmenu {
+#cssmenu {
   margin: 0;
   padding: 0;
   border: 0;
@@ -13,7 +12,7 @@
   width: auto;
   font-family: Helvetica, Arial, sans-serif;
   color: #ffffff; }
-  .cssmenu ul {
+  #cssmenu ul {
     margin: 0;
     padding: 0;
     border: 0;
@@ -31,7 +30,7 @@
     background: -o-linear-gradient(bottom, #000000 0%, #222222 50%, #3c3c3c 51%, #393939 78%, #888888 100%);
     background: -ms-linear-gradient(bottom, #000000 0%, #222222 50%, #3c3c3c 51%, #393939 78%, #888888 100%);
     background: linear-gradient(to top, #000000 0%, #222222 50%, #3c3c3c 51%, #393939 78%, #888888 100%); }
-    .cssmenu ul li {
+    #cssmenu ul li {
       margin: 0;
       padding: 0;
       border: 0;
@@ -46,7 +45,7 @@
       display: block;
       border-right: 1px solid rgba(0, 0, 0, 0.22);
       z-index: 1; }
-      .cssmenu ul li a {
+      #cssmenu ul li a {
         margin: 0;
         padding: 0;
         border: 0;
@@ -65,11 +64,11 @@
         color: #ffffff;
         border-right: 1px solid rgba(255, 255, 255, 0.15);
         z-index: 3; }
-        .cssmenu ul li a:hover {
+        #cssmenu ul li a:hover {
           color: #ffffff; }
-      .cssmenu ul li.active a {
+      #cssmenu ul li.active a {
         color: #ffffff; }
-      .cssmenu ul li::after {
+      #cssmenu ul li::after {
         content: "";
         width: 100%;
         height: 8px;
@@ -83,7 +82,7 @@
         background: -moz-linear-gradient(bottom, transparent, transparent);
         z-index: 2;
         bottom: 10px; }
-      .cssmenu ul li:hover {
+      #cssmenu ul li:hover {
         background: #1275ae;
         /* Old browsers */
         background: -moz-linear-gradient(bottom, #0b4669 0%, #1275ae 50%, #1794dc 51%, #1691d8 78%, #98d2f4 100%);
@@ -91,13 +90,13 @@
         background: -o-linear-gradient(bottom, #0b4669 0%, #1275ae 50%, #1794dc 51%, #1691d8 78%, #98d2f4 100%);
         background: -ms-linear-gradient(bottom, #0b4669 0%, #1275ae 50%, #1794dc 51%, #1691d8 78%, #98d2f4 100%);
         background: linear-gradient(to top, #0b4669 0%, #1275ae 50%, #1794dc 51%, #1691d8 78%, #98d2f4 100%); }
-      .cssmenu ul li:hover::after {
+      #cssmenu ul li:hover::after {
         background: -webkit-linear-gradient(bottom, transparent, transparent 60%, #1275ae 61%, #1275ae 100%);
         background: -o-linear-gradient(bottom, transparent, transparent 60%, #1275ae 61%, #1275ae 100%);
         background: -ms-linear-gradient(bottom, transparent, transparent 60%, #1275ae 61%, #1275ae 100%);
         background: linear-gradient(to top, transparent, transparent 60%, #1275ae 61%, #1275ae 100%);
         background: -moz-linear-gradient(bottom, transparent, transparent); }
-      .cssmenu ul li.active {
+      #cssmenu ul li.active {
         background: #1275ae;
         /* Old browsers */
         background: -moz-linear-gradient(bottom, #0b4669 0%, #1275ae 50%, #1794dc 51%, #1691d8 78%, #98d2f4 100%);
@@ -105,27 +104,27 @@
         background: -o-linear-gradient(bottom, #0b4669 0%, #1275ae 50%, #1794dc 51%, #1691d8 78%, #98d2f4 100%);
         background: -ms-linear-gradient(bottom, #0b4669 0%, #1275ae 50%, #1794dc 51%, #1691d8 78%, #98d2f4 100%);
         background: linear-gradient(to top, #0b4669 0%, #1275ae 50%, #1794dc 51%, #1691d8 78%, #98d2f4 100%); }
-      .cssmenu ul li.active::after {
+      #cssmenu ul li.active::after {
         background: -webkit-linear-gradient(bottom, transparent, transparent 60%, #1275ae 61%, #1275ae 100%);
         background: -o-linear-gradient(bottom, transparent, transparent 60%, #1275ae 61%, #1275ae 100%);
         background: -ms-linear-gradient(bottom, transparent, transparent 60%, #1275ae 61%, #1275ae 100%);
         background: linear-gradient(to top, transparent, transparent 60%, #1275ae 61%, #1275ae 100%);
         background: -moz-linear-gradient(bottom, transparent, transparent); }
-    .cssmenu ul:after {
+    #cssmenu ul:after {
       content: ".";
       display: block;
       clear: both;
       visibility: hidden;
       line-height: 0;
       height: 0; }
-  .cssmenu.align-right ul li {
+  #cssmenu.align-right ul li {
     float: right;
     border-right: 0;
     border-left: 1px solid rgba(0, 0, 0, 0.22); }
-    .cssmenu.align-right ul li a {
+    #cssmenu.align-right ul li a {
       border-right: 0;
       border-left: 1px solid rgba(255, 255, 255, 0.15); }
-  .cssmenu:after {
+  #cssmenu:after {
     content: ".";
     display: block;
     clear: both;
@@ -133,77 +132,4 @@
     line-height: 0;
     height: 0; }
 
-html, body {
-  height: 100%; }
-
-.textfield {
-  color: #000000; }
-
-body {
-  background-color: #704214;
-  background: url(img/film-strip-vertical-hi.png) top left no-repeat, url(img/film-strip-vertical-hi.png) top right no-repeat;
-  background-repeat: repeat-y;
-  height: 100%; }
-
-#container {
-  height: 100%;
-  bottom: 0; }
-
-.imgPoster {
-  width: 300px; }
-
-.siteBan {
-  width: 100%; }
-
-.cart {
-  bottom: 0;
-  background-color: #C8C8C8;
-  margin-left: 0%;
-  margin-right: 0%;
-  height: 300px; }
-
-#content-row {
-  height: 100%;
-  bottom: 0;
-  background-color: #E5E5E5;
-  margin-left: 0%;
-  margin-right: 0%;
-  position: relative; }
-
-#control-panel {
-  margin-left: 0%;
-  margin-right: 0%;
-  color: #ffffff;
-  background: #222222;
-  /* Old browsers */
-  background: -moz-linear-gradient(bottom, #000000 0%, #222222 50%, #3c3c3c 51%, #393939 78%, #888888 100%);
-  background: -webkit-linear-gradient(bottom, #000000 0%, #222222 50%, #3c3c3c 51%, #393939 78%, #888888 100%);
-  background: -o-linear-gradient(bottom, #000000 0%, #222222 50%, #3c3c3c 51%, #393939 78%, #888888 100%);
-  background: -ms-linear-gradient(bottom, #000000 0%, #222222 50%, #3c3c3c 51%, #393939 78%, #888888 100%);
-  background: linear-gradient(to top, #000000 0%, #222222 50%, #3c3c3c 51%, #393939 78%, #888888 100%); }
-
-.preview {
-  max-height: 285px; }
-
-.gradient {
-  background: #222222;
-  /* Old browsers */
-  margin-left: -15px;
-  margin-right: 0%;
-  height: 32px;
-  background: #222222;
-  /* Old browsers */
-  background: -moz-linear-gradient(bottom, #000000 0%, #222222 50%, #3c3c3c 51%, #393939 78%, #888888 100%);
-  background: -webkit-linear-gradient(bottom, #000000 0%, #222222 50%, #3c3c3c 51%, #393939 78%, #888888 100%);
-  background: -o-linear-gradient(bottom, #000000 0%, #222222 50%, #3c3c3c 51%, #393939 78%, #888888 100%);
-  background: -ms-linear-gradient(bottom, #000000 0%, #222222 50%, #3c3c3c 51%, #393939 78%, #888888 100%);
-  background: linear-gradient(to top, #000000 0%, #222222 50%, #3c3c3c 51%, #393939 78%, #888888 100%); }
-
-.icon {
-  width: 25px;
-  height: 25px; }
-
-.description {
-  height: 150px; }
-
-/*# sourceMappingURL=app.css.map */
+/*# sourceMappingURL=genrebar2.css.map */

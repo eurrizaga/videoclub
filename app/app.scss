@@ -1,0 +1,71 @@
+/* app css stylesheet */
+@import 'genrebar';
+
+html, body{
+  height: 100%;
+}
+
+.textfield{
+  color:#000000;
+}
+body{
+  background-color: #704214;
+  background: 
+    url(img/film-strip-vertical-hi.png) top left no-repeat, 
+    url(img/film-strip-vertical-hi.png) top right no-repeat;
+  background-repeat: repeat-y;
+  height:100%;
+}
+#container{
+  height:100%;
+  bottom:0;
+}
+
+.imgPoster{
+  width:300px;
+}
+.siteBan{
+  width:100%;
+}
+.cart{
+  bottom: 0;
+  background-color: #C8C8C8;
+  margin-left: 0%;
+  margin-right: 0%;
+  height: 300px;
+  
+}
+#content-row{
+  height:100%;
+  bottom: 0;
+  background-color: #E5E5E5;
+  margin-left: 0%;
+  margin-right: 0%;
+  position:relative;
+}
+
+#control-panel{
+  margin-left: 0%;
+  margin-right: 0%;
+  color: #ffffff;
+  @include bar-color();
+}
+.preview{
+  max-height:285px;
+}
+.gradient{
+  background: #222222;
+  /* Old browsers */
+  margin-left: -15px;
+  margin-right: 0%;
+  height:32px;
+  @include bar-color();
+}
+
+.icon{
+  width: 25px;
+  height: 25px;
+}
+.description{
+  height: 150px;
+}

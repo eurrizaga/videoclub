@@ -8,23 +8,24 @@
     </form>
   </li>
   <li>
-    <a href='#/register'>REGISTER</a>
+    <a href='#/register' class='btn btn-default'>REGISTER</a>
   </li>
 </ul>
 <ul class="col-xs-12 list-inline" ng-show='logged'>
   <li>
-    <a href='#/main'>FIND MOVIES</a>
+    <a href='#/main' class='btn btn-default'>FIND MOVIES</a>
   </li>
   <li>
-    <a href='#/profile'>MY PROFILE</a>
+    <a href='#/profile' class='btn btn-default'>MY PROFILE</a>
+  </li>
+  
+  <li ng-show='isAdmin()'>
+    <a href='#/editmovie' class='btn btn-default'>EDIT MOVIES</a>
   </li>
   <li ng-show='isAdmin()'>
-    <a href='#/editmovie'>EDIT MOVIES</a>
-  </li>
-  <li ng-show='isAdmin()'>
-    <a href='' ng-click='soon()'>EDIT USERS</a>
+    <a href='' ng-click='soon()' class='btn btn-default'>EDIT USERS</a>
   </li>
   <li>
-    <a href='' ng-click='logout()'>LOGOUT</a>
+    <a href='#/main' ng-click='logout()' class='btn btn-default'>LOGOUT</a>
   </li>
 </ul>
