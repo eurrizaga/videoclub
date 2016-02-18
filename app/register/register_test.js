@@ -1,16 +1,32 @@
 'use strict';
 
-describe('myApp.view2 module', function() {
+describe('myApp.register module', function() {
+  var scope, $location, $controller, appData, services;
+  var createController;
+  
+  
+  beforeEach(module('myApp.register'));
+  
 
-  beforeEach(module('myApp.view2'));
+  beforeEach(inject(function ($rootScope, $controller, _$location_) {
+    
+    $location = _$location_;
+    scope = $rootScope.$new();
 
-  describe('view2 controller', function(){
+    createController = function() {
+      return $controller('RegisterCtrl', {
+        '$scope': scope,
+        'services': services
+      });
+    };
+  }));
 
-    it('should ....', inject(function($controller) {
-      //spec body
-      var view2Ctrl = $controller('View2Ctrl');
-      expect(view2Ctrl).toBeDefined();
-    }));
+  describe('register controller', function(){
+
+    it('should ....', function($controller) {
+      var controller = createController();
+    });
 
   });
+
 });

@@ -8,7 +8,8 @@ module.exports = function(config){
       'app/bower_components/angular-route/angular-route.js',
       'app/bower_components/angular-mocks/angular-mocks.js',
       'app/components/**/*.js',
-      'app/view*/**/*.js'
+      'app/view*/**/*.js',
+      'app/register/*.js'
     ],
 
     autoWatch : true,
@@ -16,6 +17,7 @@ module.exports = function(config){
     frameworks: ['jasmine'],
 
     browsers : ['Chrome'],
+    //browsers : ['PhantomJS'],
 
     plugins : [
             'karma-chrome-launcher',
