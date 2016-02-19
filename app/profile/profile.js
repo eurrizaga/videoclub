@@ -1,9 +1,9 @@
 'use strict';
 
 var app = angular.module('myApp.profile', [
-  'ngRoute',
-  'services',
-  'directives'
+  'ngRoute'
+  
+  
 ])
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/profile', {

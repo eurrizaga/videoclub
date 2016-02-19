@@ -9,7 +9,7 @@ module.exports = function(config){
       'app/bower_components/angular-mocks/angular-mocks.js',
       'app/components/**/*.js',
       'app/view*/**/*.js',
-      'app/register/*.js'
+      'app/prueba/*.js'
     ],
 
     autoWatch : true,

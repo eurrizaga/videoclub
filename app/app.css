@@ -136,14 +136,13 @@
 html, body {
   height: 100%; }
 
-.textfield {
-  color: #000000; }
-
 body {
   background-color: #704214;
   background: url(img/film-strip-vertical-hi.png) top left no-repeat, url(img/film-strip-vertical-hi.png) top right no-repeat;
-  background-repeat: repeat-y;
-  height: 100%; }
+  background-repeat: repeat-y; }
+
+.textfield {
+  color: #000000; }
 
 #container {
   height: 100%;
@@ -163,8 +162,6 @@ body {
   height: 300px; }
 
 #content-row {
-  height: 100%;
-  bottom: 0;
   background-color: #E5E5E5;
   margin-left: 0%;
   margin-right: 0%;
@@ -205,5 +202,8 @@ body {
 
 .description {
   height: 150px; }
+
+.fill {
+  height: 100%; }
 
 /*# sourceMappingURL=app.css.map */

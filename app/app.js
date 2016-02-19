@@ -3,13 +3,13 @@
 // Declare app level module which depends on views, and components
 var app = angular.module('myApp', [
   'ngRoute',
+  'services',
+  'directives',
   'myApp.main',
   'myApp.register',
   'myApp.version',
   'myApp.editmovie',
-  'myApp.profile',
-  'services',
-  'directives'
+  'myApp.profile'
 ]).
 config(['$routeProvider', function($routeProvider) {
   $routeProvider.otherwise({redirectTo: '/main'});
