@@ -16,7 +16,7 @@ config(['$routeProvider', function($routeProvider) {
   
 }]);
 
-app.controller('ParentController', function($scope, appData){
+app.controller('ParentController', function($scope, movieData, genreData, userData){
   $scope.logged = false;
   $scope.genres = [];
   $scope.movies = [];
@@ -24,7 +24,7 @@ app.controller('ParentController', function($scope, appData){
     alert('Coming soon!!');
   }
   $scope.login = function(){
-    var user_sel = appData.findByUsername($scope.user_input);
+    var user_sel = userData.findByUsername($scope.user_input);
     if (user_sel.length > 0){
       user_sel = user_sel[0];
       if (user_sel.password === $scope.password_input){
@@ -48,7 +48,7 @@ app.controller('ParentController', function($scope, appData){
   }
 
   $scope.isAdmin = function(){
-    if (sessionStorage.user)
+    if (userData.isLogged())
       return ($scope.getCurrentUser().admin);
     else
       return false;
@@ -58,10 +58,10 @@ app.controller('ParentController', function($scope, appData){
   }
   var loadData = function(){
     // set genres
-    $scope.genres = appData.getGenres();
-    $scope.movies = appData.getMovies();
-    appData.getUsers();
-    $scope.logged = appData.isLogged();
+    $scope.genres = genreData.getGenres();
+    $scope.movies = movieData.getMovies();
+    userData.getUsers();
+    $scope.logged = userData.isLogged();
   }
   loadData();
 });

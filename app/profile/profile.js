@@ -12,12 +12,12 @@ var app = angular.module('myApp.profile', [
 ;
 }])
 
-.controller('ProfileController', function($scope, $location, appData) {
+.controller('ProfileController', function($scope, $location, userData) {
   $scope.currentUser = JSON.parse(sessionStorage.user);
   $scope.passwordConfirm = $scope.currentUser.password;
   $scope.saveChanges = function(){
     if ($scope.passwordConfirm === $scope.currentUser.password){
-      appData.updateUserProfile($scope.currentUser);
+      userData.updateUserProfile($scope.currentUser);
       $scope.goBack();
     }
     else{

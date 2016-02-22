@@ -13,13 +13,13 @@ var app = angular.module('myApp.register', [
 ;
 }])
 
-.controller('RegisterCtrl', function($scope, $location, $controller, appData) {
+.controller('RegisterCtrl', function($scope, $location, $controller, userData) {
 	$controller('ParentController', {$scope: $scope});
   $scope.addUser = function(){
 		if ($scope.new_password_input === $scope.new_password2_input){
-      var user_sel = appData.findByUsername($scope.new_user_input);
+      var user_sel = userData.findByUsername($scope.new_user_input);
       if (user_sel.length === 0){
-        var result = appData.addUser($scope.new_name_input, $scope.new_user_input, $scope.new_password_input);
+        var result = userData.addUser($scope.new_name_input, $scope.new_user_input, $scope.new_password_input);
         if (result)
           $scope.goBack();
         else

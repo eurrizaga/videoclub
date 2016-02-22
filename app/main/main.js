@@ -10,7 +10,7 @@ angular.module('myApp.main', ['ngRoute'])
   });
 }])
 
-.controller('MainController', function($scope, $controller, $http, appData) {
+.controller('MainController', function($scope, $controller, $http, movieData, userData) {
   $controller('ParentController', {$scope: $scope});
 
   $scope.selectedMovie = false;
@@ -47,15 +47,20 @@ angular.module('myApp.main', ['ngRoute'])
   };
 
   $scope.addMovie = function(){
-    if ($scope.selectedMovie === true){
-      $scope.rentList.push({
-        'id': $scope.rentList.length,
-        'name': $scope.currentMovie.name,
-        'quantity': 1
-        }
-      );
+    if (sessionStorage.user){
+      if ($scope.selectedMovie === true){
+        $scope.rentList.push({
+          'id': $scope.rentList.length,
+          'name': $scope.currentMovie.name,
+          'quantity': 1
+          }
+        );
+      }
+      $scope.goBack();
     }
-    $scope.goBack();
+    else{
+      alert("Please Login before Renting");
+    }
   };
   $scope.goBack = function(){
     $scope.selectedMovie = false;
@@ -72,16 +77,26 @@ angular.module('myApp.main', ['ngRoute'])
     $scope.selectedMovie = false;
   };
   $scope.rentMovies = function(){
-    var date = new Date();
-    var newRent = {
-      'date': date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear(),
-      'due': date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear(),
-      'movies': $scope.rentList,
-      'price': $scope.getPrice()
-    };
-    appData.addRent($scope.getCurrentUser(), newRent);
-    $scope.rentList = [];
-    $scope.goBack();
+    if (userData.isLogged()){
+      if ($scope.rentList.length > 0){
+        var date = new Date();
+        var newRent = {
+          'date': date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear(),
+          'due': date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear(),
+          'movies': $scope.rentList,
+          'price': $scope.getPrice()
+        };
+        userData.addRent($scope.getCurrentUser(), newRent);
+        $scope.rentList = [];
+        $scope.goBack();
+      }
+      else{
+        alert("No movies selected");
+      }
+    }
+    else{
+      alert("Please Login before Renting");
+    }
   };
 });
 

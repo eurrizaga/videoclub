@@ -13,14 +13,14 @@ var app = angular.module('myApp.editmovie', [
 ;
 }])
 
-.controller('EditMoviesControlller', function($scope, $location, appData) {
+.controller('EditMoviesControlller', function($scope, $location, movieData) {
 	$scope.selected = false;
   
   $scope.addMovie = function(){
 		if ($scope.selectedIndex === -1){
-      var movie_sel = appData.findMovieByNameYear($scope.name_input, $scope.year_input);
+      var movie_sel = movieData.findMovieByNameYear($scope.name_input, $scope.year_input);
       if (movie_sel.length === 0){
-        var result = appData.addMovie($scope.name_input, $scope.year_input, $scope.quantity_input, $scope.genre_input, $scope.rating_input, $scope.trailer_input, $scope.img_input, $scope.info_input);
+        var result = movieData.addMovie($scope.name_input, $scope.year_input, $scope.quantity_input, $scope.genre_input, $scope.rating_input, $scope.trailer_input, $scope.img_input, $scope.info_input);
         if (result)
           $scope.goBack();
         else
@@ -31,7 +31,7 @@ var app = angular.module('myApp.editmovie', [
       }
     }
     else{
-      var result = appData.editMovie($scope.selectedIndex, $scope.name_input, $scope.year_input, $scope.quantity_input, $scope.genre_input, $scope.rating_input, $scope.trailer_input, $scope.img_input, $scope.info_input);
+      var result = movieData.editMovie($scope.selectedIndex, $scope.name_input, $scope.year_input, $scope.quantity_input, $scope.genre_input, $scope.rating_input, $scope.trailer_input, $scope.img_input, $scope.info_input);
        if (result)
           $scope.goBack();
         else
@@ -79,7 +79,7 @@ var app = angular.module('myApp.editmovie', [
   $scope.deleteMovie = function(movie){
     var r = confirm("Are you sure yo want to delete " + movie.name + "?");
     if (r == true) {
-        appData.deleteMovie(movie);
+        movieData.deleteMovie(movie);
     }
   };
 
