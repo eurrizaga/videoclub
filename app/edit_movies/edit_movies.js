@@ -15,6 +15,7 @@ var app = angular.module('myApp.editmovie', [
 
 .controller('EditMoviesControlller', function($scope, $location, appData) {
 	$scope.selected = false;
+  
   $scope.addMovie = function(){
 		if ($scope.selectedIndex === -1){
       var movie_sel = appData.findMovieByNameYear($scope.name_input, $scope.year_input);
@@ -28,6 +29,13 @@ var app = angular.module('myApp.editmovie', [
       else{
         alert('Movie already exists');
       }
+    }
+    else{
+      var result = appData.editMovie($scope.selectedIndex, $scope.name_input, $scope.year_input, $scope.quantity_input, $scope.genre_input, $scope.rating_input, $scope.trailer_input, $scope.img_input, $scope.info_input);
+       if (result)
+          $scope.goBack();
+        else
+          alert('Error');
     }
     
 	};
@@ -45,7 +53,7 @@ var app = angular.module('myApp.editmovie', [
     $scope.trailer_input = "";
     $scope.info_input = "";
     $scope.selected = true;
-    
+    $scope.actionName = "CREATE NEW";
   };
 
   $scope.getImg = function(){
@@ -66,7 +74,7 @@ var app = angular.module('myApp.editmovie', [
     $scope.trailer_input = movie.trailer;
     $scope.info_input = movie.info;
     $scope.selected = true;
-    
+    $scope.actionName = "SAVE CHANGES";
   };
   $scope.deleteMovie = function(movie){
     var r = confirm("Are you sure yo want to delete " + movie.name + "?");

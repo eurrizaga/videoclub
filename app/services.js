@@ -148,6 +148,24 @@
         data.users[index] = user;
         sessionStorage.user = JSON.stringify(user);
         this.persistUsers();
+      },
+      editMovie: function(selectedIndex, name, year, quantity, genre, rating, trailer, img, info){
+        var index = data.users.map(function(x) {return x.id; }).indexOf(selectedIndex);
+        var newMovie = {
+          "id": selectedIndex,
+          "name": name,
+          "genre": genre,
+          "img": img,
+          "info": info,
+          "year": year,
+          "trailer": trailer,
+          "rating": rating,
+          "cast": [],
+          "quantity": quantity
+        };
+        data.movies[index] = newMovie;
+        this.persistMovies();
+        return true;
       }
 
     };

@@ -1,5 +1,5 @@
-<div ng-controller="EditMoviesControlller">
-  <div id='content-row' class = "row" align='center' ng-show='!selected'>
+<div ng-controller="EditMoviesControlller" class='fill'>
+  <div id='content-row' class = "row fill" align='center' ng-show='!selected'>
     <div class='col-xs-3'></div>
     <div class='col-xs-6' >
       <p> MOVIE LIST </p>
@@ -69,7 +69,7 @@
         </div>
 
         <div class="form-group">
-          <button type="submit" class="btn btn-primary" ng-disabled="movieForm.$invalid">CREATE NEW</button>
+          <button type="submit" class="btn btn-primary" ng-disabled="movieForm.$invalid">{{actionName}}</button>
         </div>
         <div class="form-group"><a href="" ng-click="goBack()">Go Back</a></div>
       </form> 
