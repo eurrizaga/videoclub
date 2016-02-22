@@ -1,9 +1,8 @@
 'use strict';
 
 var app = angular.module('myApp.profile', [
-  'ngRoute'
-  
-  
+  'ngRoute',
+  'services'
 ])
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/profile', {
@@ -17,8 +16,15 @@ var app = angular.module('myApp.profile', [
   $scope.currentUser = JSON.parse(sessionStorage.user);
   $scope.passwordConfirm = $scope.currentUser.password;
   $scope.saveChanges = function(){
-     
+    if ($scope.passwordConfirm === $scope.currentUser.password){
+      appData.updateUserProfile($scope.currentUser);
+      $scope.goBack();
+    }
+    else{
+      alert("Passwords don't match");
+    }
   };
-
-
+  $scope.goBack = function(){
+    $location.path("/main");
+  };
 });

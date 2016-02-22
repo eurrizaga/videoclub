@@ -142,6 +142,12 @@
       },
       persistGenres: function(){
         localStorage.VCgenres = JSON.stringify(data.genres); 
+      },
+      updateUserProfile: function(user){
+        var index = data.users.map(function(x) {return x.id; }).indexOf(user.id);
+        data.users[index] = user;
+        sessionStorage.user = JSON.stringify(user);
+        this.persistUsers();
       }
 
     };
