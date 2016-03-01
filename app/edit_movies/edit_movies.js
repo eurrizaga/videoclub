@@ -15,7 +15,7 @@ var app = angular.module('myApp.editmovie', [
 
 .controller('EditMoviesControlller', function($scope, $location, movieData) {
 	$scope.selected = false;
-  
+
   $scope.addMovie = function(){
 		if ($scope.selectedIndex === -1){
       var movie_sel = movieData.findMovieByNameYear($scope.name_input, $scope.year_input);
@@ -37,7 +37,7 @@ var app = angular.module('myApp.editmovie', [
         else
           alert('Error');
     }
-    
+    $scope.movies = movieData.getMovies();
 	};
 	$scope.goBack = function(){
 		$scope.selected = false;
@@ -77,7 +77,7 @@ var app = angular.module('myApp.editmovie', [
     $scope.actionName = "SAVE CHANGES";
   };
   $scope.deleteMovie = function(movie){
-    var r = confirm("Are you sure yo want to delete " + movie.name + "?");
+    var r = confirm("Are you sure you want to delete " + movie.name + "?");
     if (r == true) {
         movieData.deleteMovie(movie);
     }

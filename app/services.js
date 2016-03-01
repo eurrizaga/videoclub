@@ -145,6 +145,9 @@
   app.factory('genreData', function($http){
     var data = [];
     return{
+      persistGenres: function(){
+        localStorage.VCgenres = JSON.stringify(data); 
+      },
 
       getGenres: function(){
         //load genres
@@ -156,19 +159,16 @@
           $http.get('data/genres.json')
             .success(function(result){
               data = result;
-              this.persistGenres();
+              localStorage.VCgenres = JSON.stringify(data); 
               return data;
             })
             .error(function(){
               console.log('error loading genres');
             });
         }
-      },
-
-      persistGenres: function(){
-        localStorage.VCgenres = JSON.stringify(data); 
       }
 
+      
     }
   });
 })();
