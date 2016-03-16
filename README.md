@@ -6,6 +6,8 @@ A Priviledged user account can be used to edit the current movie list.
 - user: admin
 - password: admin
 
+The following is an extract from the Angular-Seed documentation:
+
 ### Prerequisites
 
 You need git to clone the angular-seed repository. You can get git from
@@ -21,8 +23,6 @@ us manage and test the application.
 
 * We get the tools we depend upon via `npm`, the [node package manager][npm].
 * We get the angular code via `bower`, a [client-side code package manager][bower].
-
-We have preconfigured `npm` to automatically run `bower` so we can simply do:
 
 ### Run the Application
 
