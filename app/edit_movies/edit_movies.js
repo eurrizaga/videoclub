@@ -32,15 +32,16 @@ var app = angular.module('myApp.editmovie', [
     }
     else{
       var result = movieData.editMovie($scope.selectedIndex, $scope.name_input, $scope.year_input, $scope.quantity_input, $scope.genre_input, $scope.rating_input, $scope.trailer_input, $scope.img_input, $scope.info_input);
-       if (result)
-          $scope.goBack();
-        else
-          alert('Error');
+      if (result)
+        $scope.goBack();
+      else
+        alert('Error');
     }
     $scope.movies = movieData.getMovies();
 	};
 	$scope.goBack = function(){
 		$scope.selected = false;
+    movieData.getMovies();
 	};
   $scope.newMovie = function(){
     $scope.selectedIndex = -1;

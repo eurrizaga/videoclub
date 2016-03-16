@@ -27,6 +27,7 @@ angular.module('myApp.main', ['ngRoute'])
   $scope.setGenre = function(value){
     $scope.selectedMovie = false;
     $scope.searchName = '';
+    console.log(value);
     if (value !== '')
       $scope.selectedGenre = value.name;
     else
@@ -74,7 +75,7 @@ angular.module('myApp.main', ['ngRoute'])
   
   $scope.newSearch = function(){
     $scope.searchName = $scope.searchText;
-    $scope.selectedMovie = false;
+    $scope.selectedGenre = "";
   };
   $scope.rentMovies = function(){
     if (userData.isLogged()){
@@ -89,6 +90,7 @@ angular.module('myApp.main', ['ngRoute'])
         userData.addRent($scope.getCurrentUser(), newRent);
         $scope.rentList = [];
         $scope.goBack();
+        alert("Rent Successful");
       }
       else{
         alert("No movies selected");
